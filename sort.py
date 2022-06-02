@@ -9,19 +9,22 @@ directory = input("Enter Directory :") # get directory
 
 
 def scan():
-        service = os.popen("systemctl | grep clamd").read()
-        if service:
-            try:
-                print("Start Scan Directory with clamAV")
-                scan = os.popen(f"clamscan --infected --recursive --remove {directory}").read()
-                return "Scan is Done"
-            except:
-                return "ERROR on File Scanning with clamAV"
-        else:
-            return "clamd Service is Down,Start it"
+    """ This Function Scan Recursively with clamAV and remove 
+    malicious Files """
+    service = os.popen("systemctl | grep clamd").read()
+    if service:
+        try:
+            print("Start Scan Directory with clamAV")
+            scan = os.popen(f"clamscan --infected --recursive --remove {directory}").read()
+            return "Scan is Done "
+        except:
+            return "ERROR on File Scanning with clamAV"
+    else:
+        return "clamd Service is Down,Start it"
 
 
 
+# Text 
 
 def sort_text():
     files = glob.glob(f"{directory}/**/*.txt" , recursive=True)
@@ -61,7 +64,7 @@ def sort_document():
 
 
 
-
+# Document
 
 def sort_document_doc():
     files = glob.glob(f"{directory}/**/*.doc" , recursive=True)
@@ -84,7 +87,7 @@ def sort_document_doc():
 
 # PDF
 
-def sort_document():
+def sort_document_pdf():
     files = glob.glob(f"{directory}/**/*.pdf" , recursive=True)
     if files:
         documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/pdf")
@@ -102,7 +105,7 @@ def sort_document():
 
 # Powerpoint
 
-def sort_document():
+def sort_document_powerpoint():
     files = glob.glob(f"{directory}/**/*.ppt" , recursive=True)
     if files:
         documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/ppt")
@@ -138,6 +141,9 @@ def sort_document():
     else:
         return "No Excel Files Found"
 
+
+
+# Excel
 
 def sort_document():
     files = glob.glob(f"{directory}/**/*.csv" , recursive=True)
@@ -176,6 +182,9 @@ def sort_mp3():
                 return "All Files Moved or Detect Files in Destination Directory"
     else:
         return "No mp3 Files Found"
+
+
+
 
 
 def sort_mp4():
@@ -271,9 +280,28 @@ def sort_gz():
 
 
 
+# Templates
+
+
+def sort_html():
+    files = glob.glob(f"{directory}/**/*.html" , recursive=True) # Linux Backup Format
+    if files:
+        htmldir = os.path.join("/run/media/koosha/1632-930B/templates/html")
+        os.makedirs(htmldir , exist_ok = True)
+        for file in files:
+            try:
+                if shutil.move(file , htmldir):
+                    return "Files Moved"
+                else:
+                    return "No File Moved"
+            except:
+                return "All Files Moved or Detect Files in Destination Directory"
+    else:
+        return "No html Files Found"
 
 
 
+# Menu
 
 def print_menu():
     print("choose what you want FS do?")
@@ -304,7 +332,17 @@ if __name__ == "__main__":
                 break
         if menu_choice == 1:
             if scan():
-                print("")
+                print(sort_text())
+                print(sort_document())
+                print(sort_document_doc())
+                print(sort_document_pdf())
+                print(sort_document_powerpoint())
+                print(sort_mp3())
+                print(sort_mp4())
+                print(sort_gz())
+                print(sort_bkf())
+                print(sort_avi())
+                print(sort_mkv())
             else:
                 print("Error on Executing Scan Function")
         elif menu_choice == 2:
