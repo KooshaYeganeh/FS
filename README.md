@@ -18,7 +18,7 @@ $ sudo systemctl stop clamav-freshclam
 $ sudo freshclam
 
 
-Note : I recomend To Download Dtabase Signature File manuall and Configure it.
+Note : I recomend To Download Database Signature File manually.
 
 $ wget https://database.clamav.net/daily.cvd
 $ sudo mkdir /var/lib/clamav
