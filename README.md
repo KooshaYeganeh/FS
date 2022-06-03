@@ -65,7 +65,7 @@ After = network.target
 
 [Service]
 Type = forking
-# if you want to scan more than one in a day change the number 1 with your desired number in below line.
+## if you want to scan more than one in a day change the number 1 with your desired number in below line.
 ExecStart = /usr/bin/freshclam -d -c 1
 Restart = on-failure
 PrivateTmp =true
