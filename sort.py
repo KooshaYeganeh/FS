@@ -117,7 +117,7 @@ def sort_document_powerpoint():
 
 # Excel
 
-def sort_document():
+def sort_document_xlsx():
     files = glob.glob(f"{directory}/**/*.xlsx" , recursive=True)
     if files:
         try:
@@ -135,7 +135,7 @@ def sort_document():
 
 # Excel
 
-def sort_document():
+def sort_document_csv():
     files = glob.glob(f"{directory}/**/*.csv" , recursive=True)
     if files:
         try:
@@ -311,12 +311,15 @@ if __name__ == "__main__":
                 print(sort_document_doc())
                 print(sort_document_pdf())
                 print(sort_document_powerpoint())
+                print(sort_document_xlsx())
+                print(sort_document_csv())
                 print(sort_mp3())
                 print(sort_mp4())
                 print(sort_gz())
                 print(sort_bkf())
                 print(sort_avi())
                 print(sort_mkv())
+                print(sort_html())
             else:
                 print("Error on Executing Scan Function")
         elif menu_choice == 2:
