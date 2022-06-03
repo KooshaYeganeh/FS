@@ -1,2 +1,4 @@
 # FS
-Easily Sort Files with Format
+Easily Sort Files with their Formats
+
+
