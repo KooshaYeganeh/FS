@@ -29,16 +29,14 @@ def scan():
 def sort_text():
     files = glob.glob(f"{directory}/**/*.txt" , recursive=True)
     if files:
-        textdir = os.path.join("/run/media/koosha/1632-930B/Documents/txt") # create Directory
-        os.makedirs(textdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , textdir): # Move Files
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            textdir = os.path.join(f"{directory}/Documents/txt") # create Directory
+            os.makedirs(textdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , textdir) # Move Files
+                print("Text File Moving is Done")
+        except:
+            print(f"ERROR on File Saving,This might be Same File in {textdir}")
     else:
         return "No text Files Found"
 
@@ -49,18 +47,16 @@ def sort_text():
 def sort_document():
     files = glob.glob(f"{directory}/**/*.docx" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/docx")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/docx")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print(f"All docx Files Moved to {documentdir}")
+        except:
+                print("ERROR on File Saving,This might be Same File in {textdir}")
     else:
-        return "No document Files Found"
+        return "No docx document Files Found"
 
 
 
@@ -69,16 +65,14 @@ def sort_document():
 def sort_document_doc():
     files = glob.glob(f"{directory}/**/*.doc" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/doc")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/doc")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print("Files Moving Done")
+        except:
+                print(f"All Files Moved or Detect Files in {documentdir}")
     else:
         return "No document Files Found"
 
@@ -90,34 +84,32 @@ def sort_document_doc():
 def sort_document_pdf():
     files = glob.glob(f"{directory}/**/*.pdf" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/pdf")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved "
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/pdf")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print("all pdf Files Moved ")
+        except:
+            print(f"All Files Moved or Detect Files in {documentdir}")
     else:
         return "No PDF Files Found"
+
+
 
 # Powerpoint
 
 def sort_document_powerpoint():
     files = glob.glob(f"{directory}/**/*.ppt" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/ppt")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/ppt")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print(f"powerpoint Files Moved to {documentdir}")
+        except:
+            print(f"All Files Moved or Detect Files in {documentdir}")
     else:
         return "No PowerPoint Files Found"
 
@@ -128,16 +120,14 @@ def sort_document_powerpoint():
 def sort_document():
     files = glob.glob(f"{directory}/**/*.xlsx" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/xlsx")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/xlsx")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print(f"xlsx Files Moved to {documentdir}")
+        except:
+            print(f"All Files Moved or Detect Files in {documentdir}")
     else:
         return "No Excel Files Found"
 
@@ -148,16 +138,14 @@ def sort_document():
 def sort_document():
     files = glob.glob(f"{directory}/**/*.csv" , recursive=True)
     if files:
-        documentdir = os.path.join("/run/media/koosha/1632-930B/Documents/csv")
-        os.makedirs(documentdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , documentdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            documentdir = os.path.join(f"{directory}/Documents/csv")
+            os.makedirs(documentdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , documentdir)
+                print(f"all csv Files is Moved to {documentdir}")
+        except:
+            print(f"All Files Moved or Detect Files in {documentdir}")
     else:
         return "No Excel Files Found"
 
@@ -170,18 +158,16 @@ def sort_document():
 def sort_mp3():
     files = glob.glob(f"{directory}/**/*.mp3" , recursive=True)
     if files:
-        mp3dir = os.path.join("/run/media/koosha/1632-930B/media/mp3")
-        os.makedirs(mp3dir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , mp3dir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            mp3dir = os.path.join(f"{directory}/media/mp3")
+            os.makedirs(mp3dir , exist_ok = True)
+            for file in files:
+                shutil.move(file , mp3dir)
+                print(f"All mp3 Files Moved to {mp3dir}")
+        except:
+            print("All Files Moved or Detect Files in Destination Directory")
     else:
-        return "No mp3 Files Found"
+        return f"No mp3 Files Found in {mp3dir}"
 
 
 
@@ -190,16 +176,14 @@ def sort_mp3():
 def sort_mp4():
     files = glob.glob(f"{directory}/**/*.mp4" , recursive=True)
     if files:
-        mp4dir = os.path.join("/run/media/koosha/1632-930B/media/mp4")
-        os.makedirs(mp4dir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , mp4dir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            mp4dir = os.path.join(f"{directory}/media/mp4")
+            os.makedirs(mp4dir , exist_ok = True)
+            for file in files:
+                shutil.move(file , mp4dir)
+                print(f"All Mp4 Files Moved to {mp4dir}")
+        except:
+            print(f"All Files Moved or Detect Files in {mp4dir}")
     else:
         return "No mp4 Files Found"
 
@@ -207,16 +191,14 @@ def sort_mp4():
 def sort_mkv():
     files = glob.glob(f"{directory}/**/*.mkv" , recursive=True)
     if files:
-        mkvdir = os.path.join("/run/media/koosha/1632-930B/media/mkv")
-        os.makedirs(mkvdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , mkvdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            mkvdir = os.path.join(f"{directory}/media/mkv")
+            os.makedirs(mkvdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , mkvdir)
+                print(f"Files Moved")
+        except:
+            print(f"All Files Moved or Detect Files in {mkvdir}")
     else:
         return "No mkv Files Found"
 
@@ -226,16 +208,14 @@ def sort_mkv():
 def sort_avi():
     files = glob.glob(f"{directory}/**/*.avi" , recursive=True)
     if files:
-        avidir = os.path.join("/run/media/koosha/1632-930B/media/avi")
-        os.makedirs(avidir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , avidir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            avidir = os.path.join(f"{directory}/media/avi")
+            os.makedirs(avidir , exist_ok = True)
+            for file in files:
+                shutil.move(file , avidir)
+                print(f"Files Moved to {avidir}")
+        except:
+                print(f"All Files Moved or Detect same Files in {avidir}")
     else:
         return "No avi Files Found"
 
@@ -247,16 +227,14 @@ def sort_avi():
 def sort_bkf():
     files = glob.glob(f"{directory}/**/*.bkf" , recursive=True)
     if files:
-        bkfdir = os.path.join("/run/media/koosha/1632-930B/Backup/bkf")
-        os.makedirs(bkfdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , bkfdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            bkfdir = os.path.join(f"{directory}/Backup/bkf")
+            os.makedirs(bkfdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , bkfdir)
+                print("Files Moved")
+        except:
+            print(f"All Files Moved or Detect Files in {bkfdir}")
     else:
         return "No Backup Files Found"
 
@@ -265,16 +243,14 @@ def sort_bkf():
 def sort_gz():
     files = glob.glob(f"{directory}/**/*.gz" , recursive=True) # Linux Backup Format
     if files:
-        gzdir = os.path.join("/run/media/koosha/1632-930B/Backup/gz")
-        os.makedirs(gzdir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , gzdir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            gzdir = os.path.join(f"{directory}/Backup/gz")
+            os.makedirs(gzdir , exist_ok = True)
+            for file in files:
+                shutil.move(file , gzdir)
+                print(f"Files Moved to {gzdir}")
+        except:
+            print(f"All Files Moved or Detect Files in {gzdir}")
     else:
         return "No Backup Files Found"
 
@@ -286,16 +262,14 @@ def sort_gz():
 def sort_html():
     files = glob.glob(f"{directory}/**/*.html" , recursive=True) # Linux Backup Format
     if files:
-        htmldir = os.path.join("/run/media/koosha/1632-930B/templates/html")
-        os.makedirs(htmldir , exist_ok = True)
-        for file in files:
-            try:
-                if shutil.move(file , htmldir):
-                    return "Files Moved"
-                else:
-                    return "No File Moved"
-            except:
-                return "All Files Moved or Detect Files in Destination Directory"
+        try:
+            htmldir = os.path.join("/run/media/koosha/1632-930B/templates/html")
+            os.makedirs(htmldir , exist_ok = True)
+            for file in files:
+                shutil.move(file , htmldir)
+                print(f"Files Moved to {htmldir}")
+        except:
+            print(f"All Files Moved or Detect Files in {htmldir}")
     else:
         return "No html Files Found"
 
