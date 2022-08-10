@@ -89,13 +89,11 @@ $ unzip main.zip
 
 $ cd FS-main
 
-Ubuntu :
+$ sudo cp FS-sort /usr/bin
 
-$ python3 sort.py
 
-centos8:
+$ Fs-sort
 
-$ python sort.py
 
 
 
