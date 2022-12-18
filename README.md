@@ -7,56 +7,75 @@ Easily Sort Files with their Formats
 
 For install clamAV:
 
-> Ubuntu
+## Ubuntu
 
-$ sudo apt update
-
-$ sudo apt-get install clamav clamav-daemon
-
-$ sudo systemctl stop clamav-freshclam
-
-$ sudo freshclam
-
+```
+sudo apt update
+```
+```
+sudo apt-get install clamav clamav-daemon
+```
+```
+sudo systemctl stop clamav-freshclam
+```
+```
+sudo freshclam
+```
 
 Note : I recomend To Download Database Signature File manually.
 
-$ wget https://database.clamav.net/daily.cvd
-$ sudo mkdir /var/lib/clamav
-$ cp daily.cvd /var/lib/clamav/daily.cvd
-$ sudo systemctl start clamav-freshclam
+```
+wget https://database.clamav.net/daily.cvd
+``` 
+```
+sudo mkdir /var/lib/clamav
+```
+```
+cp daily.cvd /var/lib/clamav/daily.cvd
+```
+```
+sudo systemctl start clamav-freshclam
+```
 
 
+## centos 8
 
-> centos 8
-
-$ sudo su -
-
-$ dnf install epel-release -y
-
-$ dnf install clamav -y
-
-$ dnf install clamd -y
-
-$ dnf install clamav clamd clamav-update -y
-
+```
+sudo su -
+```
+```
+dnf install epel-release -y
+```
+```
+dnf install clamav -y
+```
+```
+dnf install clamd -y
+```
+```
+dnf install clamav clamd clamav-update -y
+```
  Configure SElinux for ClamAV
 
-$ setsebool -P antivirus_can_scan_system 1
-
+```
+setsebool -P antivirus_can_scan_system 1
+```
 Download latest Signature
 
-$ freshclam
-
+```
+freshclam
+```
 ClamAV configuration
 
-$ sed -i 's/#LocalSocket \/run/LocalSocket \/run/g' /etc/clamd.d/scan.conf
+```
+sed -i 's/#LocalSocket \/run/LocalSocket \/run/g' /etc/clamd.d/scan.conf
+```
 
 Create ClamAV Systemd Service
 
- Create ClamAV Systemd Service
-
-$ vi /usr/lib/systemd/system/freshclam.service
-
+```
+vi /usr/lib/systemd/system/freshclam.service
+```
 add below lines in freshclam.service file and save the changes.
 
 [Unit]
@@ -75,25 +94,38 @@ WantedBy=multi-user.target
 
 Start and enable services
 
-$ systemctl start clamd@scan
-$ systemctl start freshclam
-$ systemctl enable clamd@scan
-$ systemctl enable freshclam
+```
+systemctl start clamd@scan
+```
 
+```
+systemctl start freshclam
+```
+```
+systemctl enable clamd@scan
+```
+```
+systemctl enable freshclam
+```
 
-==> Install FS
+## Install FS
 
-$ wget https://github.com/KooshaYeganeh/FS/archive/refs/heads/main.zip
+```
+wget https://github.com/KooshaYeganeh/FS/archive/refs/heads/main.zip
+```
+```
+unzip main.zip
+```
+```
+cd FS-main
+```
+```
+sudo cp FS-sort /usr/bin
+```
 
-$ unzip main.zip
-
-$ cd FS-main
-
-$ sudo cp FS-sort /usr/bin
-
-
-$ Fs-sort
-
+```
+Fs-sort
+```
 
 
 
